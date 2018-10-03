@@ -17,7 +17,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/feedback", name="feedback123")
+     * @Route("/feedback", name="feedback")
      */
     public function feedbackAction()
     {
