@@ -20,7 +20,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
         return $this
             ->createQueryBuilder('product')
             ->where('product.active = :active')
-            ->setParameter('active', 0)
+            ->setParameter('active', 1)
             ->getQuery()
             ->getResult();
     }
