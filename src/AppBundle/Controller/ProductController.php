@@ -32,6 +32,8 @@ class ProductController extends Controller
      */
     public function showAction(Product $product)
     {
+        dump($product);
+
         return ['product' => $product];
     }
 
