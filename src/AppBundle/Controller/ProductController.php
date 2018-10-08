@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -32,9 +33,26 @@ class ProductController extends Controller
      */
     public function showAction(Product $product)
     {
+        $name = $product->getCategory()->getName();
         dump($product);
 
         return ['product' => $product];
+    }
+
+    /**
+     * @Route("/category/{id}", name="product_by_category")
+     * @Template()
+     * @param Category $category
+     * @return array
+     */
+    public function listByCategoryAction(Category $category)
+    {
+        $products = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Product')
+            ->findByCategory($category);
+
+        return ['products' => $products];
     }
 
     //Если более сложная логика
