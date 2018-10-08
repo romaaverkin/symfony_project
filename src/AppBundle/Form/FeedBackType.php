@@ -17,7 +17,7 @@ class FeedBackType extends AbstractType
             ->add('name')
             ->add('email')
             ->add('message')
-            ->add('created');
+        ;
     }
 
     /**
