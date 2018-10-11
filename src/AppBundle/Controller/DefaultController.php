@@ -15,6 +15,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        dump($this->container->getParameter('database_name'));
+        die();
+
         return $this->render('@App/default/index.html.twig');
     }
 
