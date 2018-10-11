@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\FeedBackType;
+use AppBundle\Service\SerializeProductService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,9 +16,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        dump($this->container->getParameter('database_name'));
-        die();
-
         return $this->render('@App/default/index.html.twig');
     }
 

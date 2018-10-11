@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
+use AppBundle\Service\SerializeProductService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -33,8 +34,9 @@ class ProductController extends Controller
      */
     public function showAction(Product $product)
     {
-        $name = $product->getCategory()->getName();
-        dump($product);
+        $serializer = $this->get('app.serializer');
+
+        dump($serializer->serialize($product));
 
         return ['product' => $product];
     }
